@@ -23,7 +23,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
         (
             'keys' => array
             (
-                'id' => 'primary'
+                'id,round' => 'primary'
             )
         )
     ),
@@ -33,7 +33,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
         'sorting' => array
         (
             'mode'                    => 11,
-            'fields'                  => array('points'),
+            'fields'                  => array('round'),
             'panelLayout'             => 'filter;search,limit'
         ),
         'label' => array
