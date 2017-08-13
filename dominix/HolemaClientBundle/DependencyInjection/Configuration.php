@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the CssStyleSelector Bundle.
+ * This file is part of the HolemaClientBundle.
  *
- * (c) Daniel Kiesel <https://github.com/iCodr8>
+ * (c) Dominik Sander <http://dominix-design.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -27,7 +27,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('craffft_css_style_selector');
+        //$rootNode = $treeBuilder->root('craffft_css_style_selector');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
