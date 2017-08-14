@@ -9,6 +9,7 @@
  * file that was distributed with this source code.
  */
 
+/* Backend Module */
 $GLOBALS['BE_MOD']['holema'] = array(
 	'holema_rounds' => array(
 		'tables' => array('tl_holema_client_rounds')
@@ -22,16 +23,9 @@ $GLOBALS['BE_MOD']['holema'] = array(
 
 );
 
-array_insert($GLOBALS['TL_DCA']['tl_settings'],0,array(
-'fields' => array('name' => array
-(
-    'label'                   => &$GLOBALS['TL_LANG']['tl_holema_client_standings']['team_name'],
-    'exclude'                 => true,
-    'search'                  => true,
-    'inputType'               => 'text',
-    'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
-    'sql'                     => "varchar(255) NOT NULL default ''"
-))
-));
+/* Model Classes */
+$GLOBALS['TL_MODELS']['tl_holema_client_rounds'] = '\dominix\HolemaClientBundle\Models\HolemaRounds';
+$GLOBALS['TL_MODELS']['tl_holema_client_standings'] = '\dominix\HolemaClientBundle\Models\HolemaStandings';
 
-$GLOBALS['TL_MODELS']['tl_holema_client_rounds'] = '\dominix\HolemaClientBundle\Models\HolemaRounds';  
+/* Frontend Modules */
+$GLOBALS['FE_MOD']['holema']['standings'] = '\dominix\HolemaClientBundle\Modules\StandingsModule';

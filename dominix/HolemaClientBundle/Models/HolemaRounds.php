@@ -23,4 +23,14 @@ class HolemaRounds extends Model
      */
     protected static $strTable = 'tl_holema_client_rounds';
 
+		public function findForSelect() {
+			$ret = array();
+
+			foreach(HolemaRounds::findAll() as $round) {
+				$ret[$round->holemaid] = $round->name." ".$round->season;
+			}
+
+			return $ret;
+
+		}
 }

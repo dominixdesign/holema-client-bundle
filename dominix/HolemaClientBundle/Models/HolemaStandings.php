@@ -14,7 +14,7 @@ namespace dominix\HolemaClientBundle\Models;
 use Contao\Database;
 use Contao\Model;
 
-class HolemaClientStandingsModel extends Model
+class HolemaStandings extends Model
 {
 
     /**
@@ -23,17 +23,14 @@ class HolemaClientStandingsModel extends Model
      */
     protected static $strTable = 'tl_holema_client_standings';
 
-    /**
-     * @param array $arrIds
-     * @return array
-     */
-    public static function findStandingsByRound($roundId)
-    {
-        $t = self::$strTable;
-        $objDatabase = Database::getInstance();
+		public function findTeamsForSelect($dc) {
+			$ret = array();
+			$ret[-1] = "";
+			foreach(HolemaStandings::findByRound($dc->activeRecord->holema_round) as $team) {
+				$ret[$team->id] = $team->name;
+			}
 
-        $objStandings = $objDatabase->prepare("SELECT * FROM $t WHERE round = $roudnId")->execute();
+			return $ret;
 
-        return $objStandings->fetchAll();
-    }
+		}
 }
