@@ -13,3 +13,4 @@
  * Back end modules
  */
 $GLOBALS['TL_LANG']['MOD']['holema_teams'] = array('Teams / Tabelle', 'Hier können Teams und Tabellenstand bearbeitet werden.');
+$GLOBALS['TL_LANG']['MOD']['holema_rounds'] = array('Spielzeiten', 'Hier können Spielzeiten / Spielrunden bearbeitet werden.');
