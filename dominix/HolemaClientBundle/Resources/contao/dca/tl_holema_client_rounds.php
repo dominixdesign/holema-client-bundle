@@ -59,12 +59,6 @@ $GLOBALS['TL_DCA']['tl_holema_client_rounds'] = array
                 'href'                => 'act=edit',
                 'icon'                => 'edit.gif'
             ),
-            'copy'   => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_holema_client_rounds']['copy'],
-                'href'                => 'act=paste&amp;mode=copy',
-                'icon'                => 'copy.gif',
-            ),
             'delete' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_holema_client_rounds']['delete'],
