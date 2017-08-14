@@ -9,9 +9,6 @@
  * file that was distributed with this source code.
  */
 
-/**
- * Table tl_holema_client_standings
- */
 $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
 (
     // Config
@@ -49,13 +46,6 @@ $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
                 'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-            ),
-            'refreshTeams' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_holema_client_standings']['get_data'],
-                'href'                => 'key=refreshTeams',
-                'class'               => 'header_sync',
-                'attributes'          => 'onclick="Backend.getScrollOffset()"'
             )
         ),
         'operations' => array

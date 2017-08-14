@@ -17,8 +17,8 @@ class HolemaApi
   const API_URL = 'https://del2.holema.eu/api/teams/';
   const API_KEY = '***REMOVED***';
 
-  private static function call($page) {
-    $uri = self::API_URL . $page . "/" . \Config::get('holemaId');
+  private static function call($page, $round) {
+    $uri = self::API_URL . $page . "/" . $round;
 
     $curl = curl_init();
     curl_setopt_array($curl, array(
@@ -35,8 +35,8 @@ class HolemaApi
 
   }
 
-  public static function getStandings() {
-    return self::call('standings.json');
+  public static function getStandings($round) {
+    return self::call('standings.json', $round);
   }
 
 

@@ -18,9 +18,10 @@ class HolemaStandings
 
   const TABLE = 'tl_holema_client_standings';
 
-  public static function refresh() {
+  public static function refresh($round) {
+		if(!$round) {return "round missing!";}
 
-    $data = json_decode(HolemaApi::getStandings());
+    $data = json_decode(HolemaApi::getStandings($round));
 
     $objDatabase = Database::getInstance();
 

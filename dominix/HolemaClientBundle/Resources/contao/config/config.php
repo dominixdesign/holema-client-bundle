@@ -14,9 +14,12 @@ $GLOBALS['BE_MOD']['holema'] = array(
 		'tables' => array('tl_holema_client_rounds')
 	),
 	'holema_teams' => array(
-    'tables' => array('tl_holema_client_standings'),
-    'refreshTeams' => array('dominix\\HolemaClientBundle\\Modules\\Standings','manualRefreshTeams')
+    'tables' => array('tl_holema_client_standings')
+	),
+	'holema_refresh' => array(
+		'callback' => 'dominix\\HolemaClientBundle\\Modules\\ModuleRefresh'
 	)
+
 );
 
 array_insert($GLOBALS['TL_DCA']['tl_settings'],0,array(
@@ -30,3 +33,5 @@ array_insert($GLOBALS['TL_DCA']['tl_settings'],0,array(
     'sql'                     => "varchar(255) NOT NULL default ''"
 ))
 ));
+
+$GLOBALS['TL_MODELS']['tl_holema_client_rounds'] = '\dominix\HolemaClientBundle\Models\HolemaRounds';  

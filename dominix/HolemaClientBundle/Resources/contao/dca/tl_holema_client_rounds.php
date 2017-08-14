@@ -10,7 +10,7 @@
  */
 
 /**
- * Table tl_holema_client_standings
+ * Table tl_holema_client_rounds
  */
 $GLOBALS['TL_DCA']['tl_holema_client_rounds'] = array
 (
