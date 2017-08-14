@@ -52,8 +52,10 @@ class StandingsModule extends Module {
 			$standings = array_slice($standings, $startKey, $this->holema_table_rows);
 
 		}
+
 		$this->Template->my_team = $this->holema_my_team;
 		$this->Template->standings = $standings;
+		$this->Template->columns = deserialize($this->holema_standings_columns);
 		$this->Template->headline = $this->headline;
 		$this->Template->headlineUnit = $this->hl;
 		$this->Template->cssId = $this->cssID[0];

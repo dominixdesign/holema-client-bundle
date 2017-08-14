@@ -33,4 +33,14 @@ class HolemaStandings extends Model
 			return $ret;
 
 		}
+
+		public function findColumnsForSelect() {
+			$ret = array();
+    	$objDatabase = Database::getInstance();
+			$res = $objDatabase->prepare("SHOW COLUMNS FROM ".self::$strTable)->execute()->fetchAllAssoc();
+			foreach($res as $column) {
+				$ret[$column['Field']] = $column['Field'];
+			}
+			return $ret;
+		}
 }

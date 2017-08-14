@@ -22,4 +22,6 @@ $GLOBALS['TL_LANG']['FMD']['standings'] = array('Tabelle', 'Holema Tabelle');
 $GLOBALS['TL_LANG']['tl_module']['holema_round'] = array('Spielzeit', 'Die Spielzeit für die die Tabelle angezeigt werden soll.');
 $GLOBALS['TL_LANG']['tl_module']['holema_table_rows'] = array('Tabellenplätze', 'Wie viele Tabellenplätze sollen angezeigt werden. Es wird versucht der 1. Platz anzuzeigen. Sollte das nicht möglich sein, werden wenn möglich zwei Plätze hitner dem gewählten Team angezeigt.');
 $GLOBALS['TL_LANG']['tl_module']['holema_my_team'] = array('Hervorgehobenes Team', 'An diesem Team wird immer angezeigt, ungeachtet der gewählten Anzahl an Tabellenplätze.');
+$GLOBALS['TL_LANG']['tl_module']['holema_standings_columns'] = array('Anzuzeigende Spalten', 'Auswählen, welche Spalten der Tabelle angezeigt werden sollen.');
+
 $GLOBALS['TL_LANG']['tl_module']['holema_legend']  = 'Holema Client Einstellungen';

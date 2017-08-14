@@ -28,7 +28,16 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['holema_my_team'] = array
 	 'eval'                    => array('tl_class'=>'w50'),
 	 'sql'                     => "int(5) NULL"
 );
+$GLOBALS['TL_DCA']['tl_module']['fields']['holema_standings_columns'] = array
+(
+	 'label'                   => &$GLOBALS['TL_LANG']['tl_module']['holema_standings_columns'],
+	 'inputType'               => 'checkboxWizard',
+	 'options_callback'        => array('dominix\\HolemaClientBundle\\Models\\HolemaStandings', 'findColumnsForSelect'),
+	 'reference'               => &$GLOBALS['TL_LANG']['holema_standings_columns'],
+	 'eval'                    => array('multiple' => true, 'tl_class'=>'clr'),
+	 'sql'                     => "blob NULL"
+);
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] = '{title_legend},name,headline,type;';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['standings'].= '{holema_legend},holema_round,holema_table_rows,holema_my_team;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['standings'].= '{holema_legend},holema_round,holema_table_rows,holema_my_team,holema_standings_columns;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
