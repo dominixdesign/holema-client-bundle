@@ -9,10 +9,14 @@
  * file that was distributed with this source code.
  */
 
-$GLOBALS['BE_MOD']['holema']['holema_teams'] = array
-(
+$GLOBALS['BE_MOD']['holema'] = array(
+	'holema_rounds' => array(
+		'tables' => array('tl_holema_client_rounds')
+	),
+	'holema_teams' => array(
     'tables' => array('tl_holema_client_standings'),
     'refreshTeams' => array('dominix\\HolemaClientBundle\\Modules\\Standings','manualRefreshTeams')
+	)
 );
 
 array_insert($GLOBALS['TL_DCA']['tl_settings'],0,array(
