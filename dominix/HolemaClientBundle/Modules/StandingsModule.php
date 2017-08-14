@@ -54,6 +54,11 @@ class StandingsModule extends Module {
 		}
 		$this->Template->my_team = $this->holema_my_team;
 		$this->Template->standings = $standings;
+		$this->Template->headline = $this->headline;
+		$this->Template->headlineUnit = $this->hl;
+		$this->Template->cssId = $this->cssID[0];
+		$this->Template->cssClass = $this->cssID[1];
+
   }
 
 }

@@ -1,5 +1,6 @@
 <?php $this->block('content'); ?>
-<h3>Tabelle</h3>
+<div class="holema-table <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="'.$this->cssId.'"' : '' ?>>
+<<?= $this->headlineUnit ?>><?= $this->headline ?></<?= $this->headlineUnit ?>>
 <table>
 	<thead>
 		<tr>
@@ -23,4 +24,5 @@
 		?>
 	</tbody>
 </table>
+</div>
 <?php $this->endblock(); ?>
