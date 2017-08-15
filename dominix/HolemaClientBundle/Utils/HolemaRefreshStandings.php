@@ -13,7 +13,7 @@ namespace dominix\HolemaClientBundle\Utils;
 
 use Contao\Database;
 
-class HolemaStandings
+class HolemaRefreshStandings
 {
 
   const TABLE = 'tl_holema_client_standings';

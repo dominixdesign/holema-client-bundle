@@ -17,6 +17,9 @@ $GLOBALS['BE_MOD']['holema'] = array(
 	'holema_teams' => array(
     'tables' => array('tl_holema_client_standings')
 	),
+	'holema_games' => array(
+    'tables' => array('tl_holema_client_games')
+	),
 	'holema_refresh' => array(
 		'callback' => 'dominix\\HolemaClientBundle\\Modules\\ModuleRefresh'
 	)
@@ -26,6 +29,7 @@ $GLOBALS['BE_MOD']['holema'] = array(
 /* Model Classes */
 $GLOBALS['TL_MODELS']['tl_holema_client_rounds'] = '\dominix\HolemaClientBundle\Models\HolemaRounds';
 $GLOBALS['TL_MODELS']['tl_holema_client_standings'] = '\dominix\HolemaClientBundle\Models\HolemaStandings';
+$GLOBALS['TL_MODELS']['tl_holema_client_games'] = '\dominix\HolemaClientBundle\Models\HolemaGames';
 
 /* Frontend Modules */
 $GLOBALS['FE_MOD']['holema']['standings'] = '\dominix\HolemaClientBundle\Modules\StandingsModule';

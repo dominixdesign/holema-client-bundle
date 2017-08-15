@@ -25,11 +25,16 @@ class HolemaApi
       CURLOPT_RETURNTRANSFER => 1,
       CURLOPT_URL => $uri,
       CURLOPT_USERAGENT => 'starting6media powered website',
-      CURLOPT_HTTPHEADER => array('apikey: ***REMOVED***')
+      CURLOPT_HTTPHEADER => array('apikey: '.self::API_KEY)
     ));
 
     $response = curl_exec($curl);
-    curl_close($curl);
+		if(curl_errno($curl)>0) {
+			throw new \Exception(curl_error());
+		} elseif(curl_getinfo($curl,CURLINFO_HTTP_CODE)!=200) {
+			throw new \Exception('Holema response http code: '.curl_getinfo($curl,CURLINFO_HTTP_CODE));
+		}
+		curl_close($curl);
 
     return $response;
 
@@ -37,6 +42,10 @@ class HolemaApi
 
   public static function getStandings($round) {
     return self::call('standings.json', $round);
+  }
+
+  public static function getGames($round) {
+    return self::call('games.json', $round);
   }
 
 

@@ -14,24 +14,13 @@ namespace dominix\HolemaClientBundle\Models;
 use Contao\Database;
 use Contao\Model;
 
-class HolemaRounds extends Model
+class HolemaGames extends Model
 {
 
     /**
      * Name of the table
      * @var string
      */
-    protected static $strTable = 'tl_holema_client_rounds';
+    protected static $strTable = 'tl_holema_client_games';
 
-		public function findForSelect() {
-			$ret = array();
-			$ret[-1] = '';
-
-			foreach(HolemaRounds::findAll() as $round) {
-				$ret[$round->holemaid] = $round->name." ".$round->season;
-			}
-
-			return $ret;
-
-		}
 }

@@ -24,14 +24,25 @@ class HolemaStandings extends Model
     protected static $strTable = 'tl_holema_client_standings';
 
 		public function findTeamsForSelect($dc) {
+			$round = ($dc->activeRecord->holema_round) ? $dc->activeRecord->holema_round : $dc->activeRecord->round;
 			$ret = array();
 			$ret[-1] = "";
-			foreach(HolemaStandings::findByRound($dc->activeRecord->holema_round) as $team) {
-				$ret[$team->id] = $team->name;
+			if(HolemaStandings::findByRound($round)) {
+				foreach(HolemaStandings::findByRound($round) as $team) {
+					$ret[$team->id] = $team->name;
+				}
 			}
 
 			return $ret;
 
+		}
+
+		public function findTeamsForDisplay($row, $label, $dc, $args) {
+			$teamNames = self::findMultipleByIds(array($args[1],$args[2]))->fetchAll();
+			$args[0] = date('d.m.Y',$args[0]);
+			$args[1] = $teamNames[0]['name'];
+			$args[2] = $teamNames[1]['name'];
+			return $args;
 		}
 
 		public function findColumnsForSelect() {
