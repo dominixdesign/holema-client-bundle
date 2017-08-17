@@ -1,0 +1,33 @@
+<?php $this->block('content'); ?>
+<div class="holema-scorer <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="'.$this->cssId.'"' : '' ?>>
+<<?= $this->headlineUnit ?>><?= $this->headline ?></<?= $this->headlineUnit ?>>
+<table>
+	<thead>
+		<tr>
+			<th>Platz</th>
+			<?php
+			foreach($this->columns as $column) {
+				echo "<th>".$GLOBALS['TL_LANG']['holema_scorer_columns'][$column]."</th>";
+			}
+			 ?>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		foreach($this->players as $key => $team) {
+			?>
+			<tr>
+				<td><?= ($key+1) ?>.</td>
+				<?php
+				foreach($this->columns as $column) {
+					echo "<td>".$team[$column]."</td>";
+				}
+				?>
+			</tr>
+			<?php
+		}
+		?>
+	</tbody>
+</table>
+</div>
+<?php $this->endblock(); ?>

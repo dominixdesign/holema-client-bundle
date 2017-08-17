@@ -37,7 +37,20 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['holema_standings_columns'] = array
 	 'eval'                    => array('multiple' => true, 'tl_class'=>'clr'),
 	 'sql'                     => "blob NULL"
 );
+$GLOBALS['TL_DCA']['tl_module']['fields']['holema_scorer_columns'] = array
+(
+	 'label'                   => &$GLOBALS['TL_LANG']['tl_module']['holema_scorer_columns'],
+	 'inputType'               => 'checkboxWizard',
+	 'options_callback'        => array('dominix\\HolemaClientBundle\\Models\\HolemaPlayers', 'findColumnsForSelect'),
+	 'reference'               => &$GLOBALS['TL_LANG']['holema_scorer_columns'],
+	 'eval'                    => array('multiple' => true, 'tl_class'=>'clr'),
+	 'sql'                     => "blob NULL"
+);
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] = '{title_legend},name,headline,type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'].= '{holema_legend},holema_round,holema_table_rows,holema_my_team,holema_standings_columns;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['scorerlist'] = '{title_legend},name,headline,type;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['scorerlist'].= '{holema_legend},holema_round,holema_table_rows,holema_scorer_columns;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['scorerlist'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';

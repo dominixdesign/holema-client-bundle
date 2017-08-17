@@ -23,4 +23,14 @@ class HolemaPlayers extends Model
      */
     protected static $strTable = 'tl_holema_client_players';
 
+		public function findColumnsForSelect() {
+			$ret = array();
+    	$objDatabase = Database::getInstance();
+			$res = $objDatabase->prepare("SHOW COLUMNS FROM ".self::$strTable)->execute()->fetchAllAssoc();
+			foreach($res as $column) {
+				$ret[$column['Field']] = $column['Field'];
+			}
+			return $ret;
+		}
+
 }
