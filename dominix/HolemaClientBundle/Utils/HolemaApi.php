@@ -52,6 +52,14 @@ class HolemaApi
     return self::call('games.json', $round);
   }
 
+  public static function getRoster($round) {
+    return self::call('roster.json', $round);
+  }
+
+  public static function getStats($round) {
+    return self::call('stats.json', $round);
+  }
+
 	public static function updateTeam($holemaTeam, $round) {
 
 		$t = HolemaStandings::findAll(array (

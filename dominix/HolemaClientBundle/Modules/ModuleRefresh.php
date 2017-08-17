@@ -16,6 +16,7 @@ use Contao\BackendModule;
 use dominix\HolemaClientBundle\Models\HolemaRounds;
 use dominix\HolemaClientBundle\Utils\HolemaRefreshStandings;
 use dominix\HolemaClientBundle\Utils\HolemaRefreshGames;
+use dominix\HolemaClientBundle\Utils\HolemaRefreshPlayers;
 
 class ModuleRefresh extends BackendModule
 {
@@ -29,6 +30,7 @@ class ModuleRefresh extends BackendModule
 			foreach(\Input::post('round') as $round) {
 					HolemaRefreshStandings::refresh($round);
 					HolemaRefreshGames::refresh($round);
+					HolemaRefreshPlayers::refresh($round);
 					$done[$round] = HolemaRounds::findOneBy('holemaid', $round);
 			}
 			$this->Template->result = $done;
