@@ -20,7 +20,8 @@ $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
         (
             'keys' => array
             (
-                'id,round' => 'primary'
+                'id' => 'primary',
+								'holemaid,round' => 'unique'
             )
         )
     ),
@@ -87,7 +88,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
     (
         'id' => array
         (
-            'sql'                     => "int(10) unsigned NOT NULL"
+            'sql'                     => "int(10) unsigned NOT NULL AUTO_INCREMENT"
         ),
         'tstamp' => array
         (
@@ -109,6 +110,23 @@ $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'holemaid' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_holema_client_standings']['holemaid'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory' => true, 'tl_class' => 'w50'),
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
+        ),
+        'alias' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_holema_client_standings']['team_alias'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
         'shortname' => array

@@ -12,6 +12,7 @@
 namespace dominix\HolemaClientBundle\Utils;
 
 use Contao\Database;
+use dominix\HolemaClientBundle\Models\HolemaStandings;
 
 class HolemaRefreshStandings
 {
@@ -26,64 +27,34 @@ class HolemaRefreshStandings
     $objDatabase = Database::getInstance();
 
     foreach($data->teamstats->teams->team as $team) {
-      $res = $objDatabase->prepare("SELECT id FROM ".self::TABLE." WHERE id = ? AND round = ?")->execute($team->{'@id'}, $data->teamstats->round->{'@id'});
 
-      if($res->count() == 1) {
-        // already existing id, make update
-        $objDatabase->prepare("UPDATE ".self::TABLE." SET
-          name = ?,
-          shortname = ?,
-          city = ?,
-          games = ?,
-          rw = ?,
-          ow = ?,
-          pw = ?,
-          pl = ?,
-          ol = ?,
-          rl = ?,
-          points = ?,
-          goalsfor = ?,
-          goalsagainst = ?,
-          penalties = ?,
-          tstamp = UNIX_TIMESTAMP()
-          WHERE id = ? AND round = ?")->execute(
-            $team->name,
-            $team->shortname,
-            $team->city,
-            $team->games,
-            $team->rw,
-            $team->ow,
-            $team->pw,
-            $team->pl,
-            $team->ol,
-            $team->rl,
-            $team->points,
-            $team->goalsfor,
-            $team->goalsagainst,
-            $team->penalties,
+			$t = HolemaStandings::findAll(array (
+		    'limit'   => 1,
+		    'column'  => array('holemaid=?','round=?'),
+		    'value'   => array($team->{'@id'}, $data->teamstats->round->{'@id'})
+		  ));
 
-            $team->{'@id'}, $data->teamstats->round->{'@id'});
-      } else {
-        $objDatabase->prepare("INSERT INTO ".self::TABLE."
-        (id, round, name, shortname, city, games, rw, ow, pw, pl, ol, rl, points, goalsfor, goalsagainst, penalties, tstamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, UNIX_TIMESTAMP()) ")
-        ->execute(
-          $team->{'@id'},
-          $data->teamstats->round->{'@id'},
-          $team->name,
-          $team->shortname,
-          $team->city,
-          $team->games,
-          $team->rw,
-          $team->ow,
-          $team->pw,
-          $team->pl,
-          $team->ol,
-          $team->rl,
-          $team->points,
-          $team->goalsfor,
-          $team->goalsagainst,
-          $team->penalties);
-      }
+			if(!$t) {
+				$t = HolemaApi::updateTeam($team, $data->teamstats->round->{'@id'}, true);
+			}
+
+			$t->name = $team->name;
+			$t->round = $data->teamstats->round->{'@id'};
+			$t->shortname = $team->shortname;
+			$t->city = $team->city;
+			$t->games = $team->games;
+			$t->rw = $team->rw;
+			$t->ow = $team->ow;
+			$t->pw = $team->pw;
+			$t->pl = $team->pl;
+			$t->ol = $team->ol;
+			$t->rl = $team->rl;
+			$t->points = $team->points;
+			$t->goalsfor = $team->goalsfor;
+			$t->goalsagainst = $team->goalsagainst;
+			$t->penalties = $team->penalties;
+			$t->save();
+
     }
 
   }

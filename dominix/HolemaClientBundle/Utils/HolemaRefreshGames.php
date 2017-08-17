@@ -26,15 +26,14 @@ class HolemaRefreshGames
     $data = json_decode(HolemaApi::getGames($round));
 
 		foreach($data->schedule->games->game as $game) {
-
-			//TODO create Teams, which are not existing by standings
-
 			$date = date_parse_from_format("d.m.Y", $game->gamedate);
 			$time = explode(':',$game->gametime);
 			$g = HolemaGames::findById($game->{'@id'});
 			if(!$g) {
 				$g = new HolemaGames();
 				$g->id = $game->{'@id'};
+				HolemaApi::updateTeam($game->hometeam, $data->schedule->round->{'@id'});
+				HolemaApi::updateTeam($game->awayteam, $data->schedule->round->{'@id'});
 			}
 			$g->hometeam = $game->hometeam->{'@id'};
 			$g->awayteam = $game->awayteam->{'@id'};
@@ -47,18 +46,10 @@ class HolemaRefreshGames
 			$g->homescore = $game->homescore;
 			$g->awayscore = $game->awayscore;
 			$g->ended = ($game->ended) ? 1 : 0;
+			$g->tstamp = time();
 			$g->save();
 		}
 
   }
-
-	private static function helperGetTeam($id, $round) {
-		return HolemaStandings::findAll(array (
-	    'limit'   => 1,
-	    'column'  => array('id=?','round=?'),
-	    'value'   => array($id, $round)
-	  ));
-	}
-
 
 }

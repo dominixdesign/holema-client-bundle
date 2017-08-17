@@ -11,6 +11,10 @@
 
 namespace dominix\HolemaClientBundle\Utils;
 
+use dominix\HolemaClientBundle\Models\HolemaStandings;
+use Contao\StringUtil;
+use Contao\Files;
+
 class HolemaApi
 {
 
@@ -47,6 +51,37 @@ class HolemaApi
   public static function getGames($round) {
     return self::call('games.json', $round);
   }
+
+	public static function updateTeam($holemaTeam, $round) {
+
+		$t = HolemaStandings::findAll(array (
+	    'limit'   => 1,
+	    'column'  => array('holemaid=?','round=?'),
+	    'value'   => array($holemaTeam->{'@id'}, $round)
+	  ));
+		if(!$t) {
+			$t = new HolemaStandings();
+			$t->holemaid = $holemaTeam->{'@id'};
+		}
+
+		$t->shortname = $holemaTeam->shortname;
+		$t->tstamp = time();
+		$t->name = $holemaTeam->name;
+		$t->city = $holemaTeam->city;
+		$t->round = $round;
+		$t->alias = StringUtil::generateAlias($t->name);
+		$t->save();
+
+		foreach([20, 50, 100, 200] as $width) {
+			$filename = TL_ROOT . '/files/holema_logos/' . $t->alias . "_" . $width . ".png";
+			if(!file_exists($filename)) {
+				Files::getInstance()->fputs(fopen($filename, 'w+'), file_get_contents($holemaTeam->logo->{'image_'.$width}));
+			}
+		}
+
+		return $t;
+
+	}
 
 
 }

@@ -33,7 +33,11 @@ class StandingsModule extends Module {
 
   protected function compile()
   {
-		$standings = HolemaStandings::findByRound($this->holema_round,array('order' => ' points DESC'))->fetchAll();
+		$standings = HolemaStandings::findByRound($this->holema_round,array('order' => ' points DESC'));
+		if(!$standings) {
+			return null;
+		}
+		$standings = $standings->fetchAll();
 		if($this->holema_table_rows>0) {
 			$startKey = 0;
 			$r = 1;
