@@ -153,6 +153,15 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'eval'                    => array('mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "varchar(25) NOT NULL default ''"
         ),
+        'location' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_holema_client_games']['location'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
         'spectators' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_holema_client_games']['spectators'],
