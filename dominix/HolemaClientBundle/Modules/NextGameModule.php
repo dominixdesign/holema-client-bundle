@@ -35,6 +35,7 @@ class NextGameModule extends Module {
   {
 		$games = HolemaGames::findAll(array (
 	    'order'   => ' gamedate DESC',
+			'limit'   => 1,
 	    'column'  => array('hometeam=?','round=?'),
 	    'value'   => array($this->holema_my_team, $this->holema_round)
 	  ));
@@ -44,7 +45,7 @@ class NextGameModule extends Module {
 		$games = $games->fetchAll();
 
 		$this->Template->my_team = $this->holema_my_team;
-		$this->Template->games = $games;
+		$this->Template->game = $games[0];
 		$this->Template->columns = deserialize($this->holema_standings_columns);
 		$this->Template->headline = $this->headline;
 		$this->Template->headlineUnit = $this->hl;
