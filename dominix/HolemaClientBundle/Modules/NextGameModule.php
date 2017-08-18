@@ -4,6 +4,7 @@ namespace dominix\HolemaClientBundle\Modules;
 
 use Contao\Module;
 use dominix\HolemaClientBundle\Models\HolemaGames;
+use dominix\HolemaClientBundle\Models\HolemaStandings;
 
 class NextGameModule extends Module {
 
@@ -42,7 +43,10 @@ class NextGameModule extends Module {
 		if(!$games) {
 			return null;
 		}
-		$games = $games->fetchAll();
+		$game = $games->fetchAll()[0];
+
+		$game['home'] = HolemaStandings::findByIdAndRound($game->hometeam,$this->holema_round);
+		$game['away'] = HolemaStandings::findByIdAndRound($game->awayteam,$this->holema_round);
 
 		$this->Template->my_team = $this->holema_my_team;
 		$this->Template->game = $games[0];
