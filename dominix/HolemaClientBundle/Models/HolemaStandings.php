@@ -75,7 +75,13 @@ class HolemaStandings extends Model
   	    'value'   => array($holemaid, $round)
   	  ));
       if($result) {
-        return $result->fetchAll()[0];
+        $return = $result->fetchAll()[0];
+        foreach([20, 50, 100, 200] as $width) {
+          if(file_exists(TL_ROOT . $filename)) {
+            $return['logos'][$width] = HolemaStandings::getLogoFilename($t->alias, $width);
+          }
+    		}
+        return $return;
       }
       return null;
     }
