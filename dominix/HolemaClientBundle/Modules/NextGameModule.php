@@ -49,7 +49,7 @@ class NextGameModule extends Module {
 		$game['away'] = HolemaStandings::findByIdAndRound($game->awayteam,$this->holema_round);
 
 		$this->Template->my_team = $this->holema_my_team;
-		$this->Template->game = $games[0];
+		$this->Template->game = $game;
 		$this->Template->columns = deserialize($this->holema_standings_columns);
 		$this->Template->headline = $this->headline;
 		$this->Template->headlineUnit = $this->hl;
