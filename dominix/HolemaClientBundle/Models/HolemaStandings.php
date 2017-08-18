@@ -38,12 +38,25 @@ class HolemaStandings extends Model
 		}
 
 		public function findTeamsForDisplay($row, $label, $dc, $args) {
-			$teamNames = self::findMultipleByIds(array($args[1],$args[2]))->fetchAll();
 			$args[0] = date('d.m.Y',$args[0]);
-			$args[1] = $teamNames[0]['name'];
-			$args[2] = $teamNames[1]['name'];
+			$args[1] = self::getTeamName($args[1],$args[3]);
+			$args[2] = self::getTeamName($args[2],$args[3]);
 			return $args;
 		}
+
+    public static function getTeamName($holemaId, $round) {
+      $team = self::findAll(array (
+  	    'limit'   => 1,
+  	    'column'  => array('holemaid=?','round=?'),
+  	    'value'   => array($holemaId, $round)
+  	  ));
+      if($team) {
+        $team = $team->fetchAll();
+        return $team[0]['name'];
+      } else {
+        return '## unknown team ('.$holemaId.', '.$round.') ##';
+      }
+    }
 
 		public function findColumnsForSelect() {
 			$ret = array();
