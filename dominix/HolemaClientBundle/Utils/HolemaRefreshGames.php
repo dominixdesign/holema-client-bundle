@@ -40,7 +40,7 @@ class HolemaRefreshGames
 			$g->gamedate = mktime($time[0],$time[1],0,$date['month'],$date['day'],$date['year']);
 			$g->gametime = $game->gametime;
 			$g->round = $data->schedule->round->{'@id'};
-      $g->location = $game->location;
+      $g->location = $game->location->{'#text'};
 			$g->spectators = $game->spectators;
 			$g->periodscore = $game->periodscore;
 			$g->gamestatus = $game->gamestatus;
