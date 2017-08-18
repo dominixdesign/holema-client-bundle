@@ -15,7 +15,7 @@
 	<tbody>
 		<?php
 		foreach($this->standings as $key => $team) {
-			$class = ($team['id'] == $this->my_team) ? ' class="highlight-team"' : '';
+			$class = ($team['holemaid'] == $this->my_team) ? ' class="highlight-team"' : '';
 			?>
 			<tr<?= $class ?>>
 				<td><?= $team['rank'] ?>.</td>
