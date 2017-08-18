@@ -81,7 +81,7 @@ class HolemaApi
 		$t->save();
 
 		foreach([20, 50, 100, 200] as $width) {
-			$filename = TL_ROOT . '/files/holema_logos/' . $t->alias . "_" . $width . ".png";
+			$filename = TL_ROOT . HolemaStandings::getLogoFilename($t->alias, $width);
 			if(!file_exists($filename)) {
 				Files::getInstance()->fputs(fopen($filename, 'w+'), file_get_contents($holemaTeam->logo->{'image_'.$width}));
 			}

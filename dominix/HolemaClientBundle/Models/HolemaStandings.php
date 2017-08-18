@@ -79,4 +79,8 @@ class HolemaStandings extends Model
       }
       return null;
     }
+
+    public static function getLogoFilename($alias, $width) {
+      return '/files/holema_logos/' . $alias . "_" . $width . ".png";
+    }
 }
