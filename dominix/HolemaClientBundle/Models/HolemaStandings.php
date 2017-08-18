@@ -29,7 +29,7 @@ class HolemaStandings extends Model
 			$ret[-1] = "";
 			if(HolemaStandings::findByRound($round)) {
 				foreach(HolemaStandings::findByRound($round) as $team) {
-					$ret[$team->id] = $team->name;
+					$ret[$team->holemaid] = $team->name;
 				}
 			}
 
