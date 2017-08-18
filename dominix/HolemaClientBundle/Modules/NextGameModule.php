@@ -35,10 +35,10 @@ class NextGameModule extends Module {
   protected function compile()
   {
 		$games = HolemaGames::findAll(array (
-	    'order'   => ' gamedate DESC',
+	    'order'   => ' gamedate ASC',
 			'limit'   => 1,
-	    'column'  => array('hometeam=?','round=?'),
-	    'value'   => array($this->holema_my_team, $this->holema_round)
+	    'column'  => array('hometeam=?','gamedate>?'),
+	    'value'   => array($this->holema_my_team, time())
 	  ));
 		if(!$games) {
 			return null;
