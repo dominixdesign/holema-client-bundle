@@ -83,7 +83,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
     // Palettes
     'palettes' => array
     (
-        'default' => 'round,hometeam,awayteam,gameday,gamedate,gametime,spectators,periodscore,homescore,awayscore,resulttype,gamestatus,ended'
+        'default' => 'round,hometeam,awayteam,gameday,gamedate,gametime,location,spectators,periodscore,homescore,awayscore,resulttype,gamestatus,ended'
     ),
     // Fields
     'fields'   => array
@@ -100,7 +100,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_holema_client_games']['round'],
             'exclude'                 => true,
-            'search'                  => true,
+            'filter'                  => true,
             'inputType'               => 'select',
 						'options_callback'				=> array('dominix\\HolemaClientBundle\\Models\\HolemaRounds', 'findForSelect'),
             'eval'                    => array('mandatory' => true, 'tl_class' => 'clr w50', 'onchange' => 'Backend.autoSubmit(\'tl_holema_client_games\')'),
