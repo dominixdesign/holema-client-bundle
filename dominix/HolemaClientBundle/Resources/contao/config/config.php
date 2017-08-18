@@ -37,5 +37,5 @@ $GLOBALS['TL_MODELS']['tl_holema_client_players'] = '\dominix\HolemaClientBundle
 
 /* Frontend Modules */
 $GLOBALS['FE_MOD']['holema']['standings'] = '\dominix\HolemaClientBundle\Modules\StandingsModule';
-$GLOBALS['FE_MOD']['holema']['nexthomegame'] = '\dominix\HolemaClientBundle\Modules\NextGameModule';
+$GLOBALS['FE_MOD']['holema']['nextgame'] = '\dominix\HolemaClientBundle\Modules\NextGameModule';
 $GLOBALS['FE_MOD']['holema']['scorerlist'] = '\dominix\HolemaClientBundle\Modules\ScorerlistModule';
