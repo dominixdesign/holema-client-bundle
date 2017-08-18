@@ -38,7 +38,6 @@ class NextGameModule extends Module {
 	    'column'  => array('hometeam=?','round=?'),
 	    'value'   => array($this->holema_my_team, $this->holema_round)
 	  ));
-		var_dump($this->holema_my_team, $this->holema_round);
 		if(!$games) {
 			return null;
 		}
