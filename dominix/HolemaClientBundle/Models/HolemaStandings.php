@@ -39,12 +39,12 @@ class HolemaStandings extends Model
 
 		public function findTeamsForDisplay($row, $label, $dc, $args) {
 			$args[0] = date('d.m.Y',$args[0]);
-			$args[1] = self::getTeamName($args[1],$args[3]);
-			$args[2] = self::getTeamName($args[2],$args[3]);
+			$args[1] = self::getTeamData($args[1],$args[3]);
+			$args[2] = self::getTeamData($args[2],$args[3]);
 			return $args;
 		}
 
-    public static function getTeamName($holemaId, $round) {
+    public static function getTeamData($holemaId, $round, $data='name') {
       $team = self::findAll(array (
   	    'limit'   => 1,
   	    'column'  => array('holemaid=?','round=?'),
@@ -52,7 +52,7 @@ class HolemaStandings extends Model
   	  ));
       if($team) {
         $team = $team->fetchAll();
-        return $team[0]['name'];
+        return $team[0][$data];
       } else {
         return '## unknown team ('.$holemaId.', '.$round.') ##';
       }
