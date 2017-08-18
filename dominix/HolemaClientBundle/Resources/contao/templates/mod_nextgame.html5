@@ -1,0 +1,8 @@
+<?php $this->block('content'); ?>
+<div class="holema-nextgame <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="'.$this->cssId.'"' : '' ?>>
+<<?= $this->headlineUnit ?>><?= $this->headline ?></<?= $this->headlineUnit ?>>
+<?php
+var_dump($this->games);
+?>
+</div>
+<?php $this->endblock(); ?>
