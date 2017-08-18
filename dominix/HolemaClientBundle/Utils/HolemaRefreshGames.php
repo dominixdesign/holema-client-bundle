@@ -32,9 +32,9 @@ class HolemaRefreshGames
 			if(!$g) {
 				$g = new HolemaGames();
 				$g->id = $game->{'@id'};
-				HolemaApi::updateTeam($game->hometeam, $data->schedule->round->{'@id'});
-				HolemaApi::updateTeam($game->awayteam, $data->schedule->round->{'@id'});
 			}
+      HolemaApi::updateTeam($game->hometeam, $data->schedule->round->{'@id'});
+      HolemaApi::updateTeam($game->awayteam, $data->schedule->round->{'@id'});
 			$g->hometeam = $game->hometeam->{'@id'};
 			$g->awayteam = $game->awayteam->{'@id'};
 			$g->gamedate = mktime($time[0],$time[1],0,$date['month'],$date['day'],$date['year']);
