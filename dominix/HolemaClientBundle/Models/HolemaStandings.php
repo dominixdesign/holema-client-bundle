@@ -67,4 +67,16 @@ class HolemaStandings extends Model
 			}
 			return $ret;
 		}
+
+    public static function findByIdAndRound($holemaid, $round) {
+      $result = HolemaStandings::findAll(array (
+  	    'limit'   => 1,
+  	    'column'  => array('holemaid=?','round=?'),
+  	    'value'   => array($holemaid, $round)
+  	  ));
+      if($result) {
+        return $result->fetchAll()[0];
+      }
+      return null;
+    }
 }
