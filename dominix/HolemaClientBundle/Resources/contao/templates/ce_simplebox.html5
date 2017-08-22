@@ -1,0 +1,16 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+<div class="gr-6@large gr-6@wide gr-6@middle gr-12@small">
+  <div class="card">
+  	<div class="card_content">
+      <a href="<?= $this->href ?>" class="hyperlink_txt" title="<?= $this->linkTitle ?>">
+        <figure class="image_container"<?php if ($this->margin): ?> style="<?= $this->margin ?>"<?php endif; ?>>
+          <?php $this->insert('picture_default', $this->picture); ?>
+        </figure>
+      </a>
+  	</div>
+  </div>
+</div>
+
+<?php $this->endblock(); ?>
