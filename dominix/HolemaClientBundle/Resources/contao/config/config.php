@@ -43,3 +43,9 @@ $GLOBALS['FE_MOD']['holema']['scorerlist'] = '\dominix\HolemaClientBundle\Module
 /* Content Elements */
 $GLOBALS['TL_CTE']['media']['simplebox'] = '\dominix\HolemaClientBundle\ContentElements\SimpleBox';
 $GLOBALS['TL_HOOKS']['getAttributesFromDca'][] = array('\dominix\HolemaClientBundle\ContentElements\CeHelper', 'myGetAttributesFromDca');
+$GLOBALS['TL_CTE']['grid']['rowStart'] = '\dominix\HolemaClientBundle\ContentElements\RowStart';
+$GLOBALS['TL_CTE']['grid']['rowStop'] = '\dominix\HolemaClientBundle\ContentElements\RowStop';
+
+/* Wrapper */
+$GLOBALS['TL_WRAPPERS']['start'][] = 'rowStart';
+$GLOBALS['TL_WRAPPERS']['stop'][] = 'rowStop';
