@@ -1,0 +1,7 @@
+<div class="people-box">
+	<figure class="image_container"<?php if ($this->margin): ?> style="<?= $this->margin ?>"<?php endif; ?>>
+		{{image::<?= $this->singleSRC ?>}}
+	</figure>
+	<?= $this->people_name ?>
+	<?php var_dump($this->attributes) ?>
+</div>
