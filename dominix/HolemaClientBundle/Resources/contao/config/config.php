@@ -38,6 +38,7 @@ $GLOBALS['TL_MODELS']['tl_holema_client_players'] = '\dominix\HolemaClientBundle
 $GLOBALS['FE_MOD']['holema']['standings'] = '\dominix\HolemaClientBundle\Modules\StandingsModule';
 $GLOBALS['FE_MOD']['holema']['nextgame'] = '\dominix\HolemaClientBundle\Modules\NextGameModule';
 $GLOBALS['FE_MOD']['holema']['scorerlist'] = '\dominix\HolemaClientBundle\Modules\ScorerlistModule';
+$GLOBALS['FE_MOD']['holema']['lastgames'] = '\dominix\HolemaClientBundle\Modules\LastGamesModule';
 
 /* Content Elements */
 $GLOBALS['TL_CTE']['media']['simplebox'] = '\dominix\HolemaClientBundle\ContentElements\SimpleBox';
