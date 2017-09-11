@@ -14,6 +14,7 @@ namespace dominix\HolemaClientBundle\Utils;
 use Contao\Database;
 use dominix\HolemaClientBundle\Models\HolemaPlayers;
 use Contao\StringUtil;
+use Contao\Files;
 
 class HolemaRefreshPlayers
 {
