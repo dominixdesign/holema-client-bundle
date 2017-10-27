@@ -38,12 +38,13 @@ class StandingsModule extends Module {
 			return null;
 		}
 		$standings = $standings->fetchAll();
+
 		if($this->holema_table_rows>0) {
 			$startKey = 0;
 			$r = 1;
 			foreach($standings as $key => $team) {
 				$standings[$key]['rank'] = $r++;
-				if($team['id'] == $this->holema_my_team) {
+				if($team['holemaid'] == $this->holema_my_team) {
 					if($key >= $this->holema_table_rows) {
 						$startKey += ($key - $this->holema_table_rows) + 3;
 					}
