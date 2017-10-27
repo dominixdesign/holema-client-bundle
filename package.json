@@ -1,0 +1,10 @@
+{
+  "name": "holema-client-bundle",
+  "version": "0.0.1",
+  "description": "HoLeMa things for ESVK",
+  "private": true,
+  "devDependencies": {
+    "le-ftp": "^1.0.5"
+  },
+  "license": "proprietary"
+}
