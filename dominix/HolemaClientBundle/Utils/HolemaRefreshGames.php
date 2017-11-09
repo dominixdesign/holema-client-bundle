@@ -44,6 +44,7 @@ class HolemaRefreshGames
 			$g->spectators = $game->spectators;
 			$g->periodscore = $game->periodscore;
 			$g->gamestatus = $game->gamestatus;
+			$g->resulttype = $game->resulttype;
 			$g->homescore = $game->homescore;
 			$g->awayscore = $game->awayscore;
 			$g->ended = ($game->ended) ? 1 : 0;
