@@ -38,12 +38,14 @@ class ScheduleModule extends Module {
 		if($this->holema_my_team) {
 			$games = HolemaGames::findAll(array (
 				'order'   => ' gamedate ASC',
-				'column'  => array('round=? AND (awayteam=? OR hometeam = ?)'),
-				'value'   => array($this->holema_round,$this->holema_my_team,$this->holema_my_team)
+				'column'  => array('gamedate >= ? AND gamedate <= ? AND (awayteam = ? OR hometeam = ?)'),
+				'value'   => array($this->holema_from_date,$this->holema_to_date,$this->holema_my_team,$this->holema_my_team)
 			));
 		} else {
 			$games = HolemaGames::findAll(array (
-				'order'   => ' gamedate ASC'
+				'order'   => ' gamedate ASC',
+				'column'  => array('gamedate >= ? AND gamedate <= ?'),
+				'value'   => array($this->holema_from_date,$this->holema_to_date)
 			));
 
 		}
