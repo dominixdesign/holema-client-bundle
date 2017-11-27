@@ -45,8 +45,8 @@ class NextGameModule extends Module {
 		}
 		$game = $games->fetchAll()[0];
 
-		$game['home'] = HolemaStandings::findByIdAndRound($game['hometeam'],$this->holema_round);
-		$game['away'] = HolemaStandings::findByIdAndRound($game['awayteam'],$this->holema_round);
+		$game['home'] = HolemaStandings::findByIdAndRound($game['hometeam'],$game['round']);
+		$game['away'] = HolemaStandings::findByIdAndRound($game['awayteam'],$game['round']);
 
 		$this->Template->my_team = $this->holema_my_team;
 		$this->Template->game = $game;
