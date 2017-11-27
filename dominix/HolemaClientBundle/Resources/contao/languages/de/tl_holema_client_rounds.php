@@ -15,6 +15,7 @@
 $GLOBALS['TL_LANG']['tl_holema_client_rounds']['holemaid'] = array('Holema ID', 'Geben Sie hier die ID der Runde bei Holema ein.');
 $GLOBALS['TL_LANG']['tl_holema_client_rounds']['name'] = array('Name', 'Name der Runde.');
 $GLOBALS['TL_LANG']['tl_holema_client_rounds']['season'] = array('Saison', 'Saison der Runde.');
+$GLOBALS['TL_LANG']['tl_holema_client_rounds']['autorefresh'] = array('automatisch aktualisieren', 'Automatische Aktualiserungen für diese Runde aktivieren.');
 
 
 /**

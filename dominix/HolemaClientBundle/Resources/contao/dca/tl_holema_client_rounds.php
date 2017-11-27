@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_rounds'] = array
     // Palettes
     'palettes' => array
     (
-        'default' => 'holemaid,name,season'
+        'default' => 'holemaid,name,season,autorefresh'
     ),
     // Fields
     'fields'   => array
@@ -114,6 +114,14 @@ $GLOBALS['TL_DCA']['tl_holema_client_rounds'] = array
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'rgxp'=>'alphanumeric', 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'autorefresh' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_holema_client_rounds']['autorefresh'],
+            'exclude'                 => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
+            'sql'                     => "blob NULL"
         )
     )
 );

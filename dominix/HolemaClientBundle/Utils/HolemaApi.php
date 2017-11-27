@@ -15,6 +15,11 @@ use dominix\HolemaClientBundle\Models\HolemaStandings;
 use Contao\StringUtil;
 use Contao\Files;
 
+use dominix\HolemaClientBundle\Models\HolemaRounds;
+use dominix\HolemaClientBundle\Utils\HolemaRefreshStandings;
+use dominix\HolemaClientBundle\Utils\HolemaRefreshGames;
+use dominix\HolemaClientBundle\Utils\HolemaRefreshPlayers;
+
 class HolemaApi
 {
 
@@ -88,6 +93,20 @@ class HolemaApi
 		}
 
 		return $t;
+
+	}
+
+	public static function refreshAll() {
+		$r = HolemaRounds::findAll(array (
+	    'column'  => array('autorefresh=?'),
+	    'value'   => array(1)
+	  ));
+
+		foreach($r as $round) {
+				HolemaRefreshStandings::refresh($round->holemaid);
+				HolemaRefreshGames::refresh($round->holemaid);
+				HolemaRefreshPlayers::refresh($round->holemaid);
+		}
 
 	}
 
