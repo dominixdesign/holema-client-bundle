@@ -18,7 +18,7 @@ $GLOBALS['TL_LANG']['MSC']['holema_legend'] = 'Holema Einstellungen';
 $GLOBALS['TL_LANG']['CTE']['rowStart'] = array('Grid Reihe Start', 'Beginn einer Reihe im Grid.');
 $GLOBALS['TL_LANG']['CTE']['rowStop'] = array('Grid Reihe Ende', 'Beendet einer Reihe im Grid.');
 $GLOBALS['TL_LANG']['CTE']['grid'] = 'Grid Elemente';
-$GLOBALS['TL_LANG']['CTE']['people'] = array('Personen Element','Element zur Darstellung von Personen mit Bild und Eigenschaften';
+$GLOBALS['TL_LANG']['CTE']['people'] = array('Personen Element','Element zur Darstellung von Personen mit Bild und Eigenschaften');
 
 $GLOBALS['TL_LANG']['holema_standings_columns']['name'] = 'Mannschaft';
 $GLOBALS['TL_LANG']['holema_standings_columns']['shortname'] = 'Team';
