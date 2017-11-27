@@ -53,4 +53,4 @@ $GLOBALS['TL_WRAPPERS']['start'][] = 'rowStart';
 $GLOBALS['TL_WRAPPERS']['stop'][] = 'rowStop';
 
 /* Cronjob */
-$GLOBALS['TL_CRON']['minutely'][] = array('\dominix\HolemaClientBundle\Utils\HolemaApi','refreshAll');
+$GLOBALS['TL_CRON']['hourly'][] = array('\dominix\HolemaClientBundle\Utils\HolemaApi','refreshAll');
