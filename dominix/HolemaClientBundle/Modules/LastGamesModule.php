@@ -37,8 +37,8 @@ class LastGamesModule extends Module {
 		$games = HolemaGames::findAll(array (
 	    'order'   => ' gamedate DESC',
 			'limit'   => $this->holema_table_rows,
-	    'column'  => array('hometeam=?','gamedate<?'),
-	    'value'   => array($this->holema_my_team, time())
+	    'column'  => array('(hometeam=? OR awayteam=?) AND gamedate<? AND homescore IS NOT NULL'),
+	    'value'   => array($this->holema_my_team, $this->holema_my_team, time())
 	  ));
 		if(!$games) {
 			return null;
