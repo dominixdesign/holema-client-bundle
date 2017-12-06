@@ -108,6 +108,8 @@ class HolemaApi
 				HolemaRefreshPlayers::refresh($round->holemaid);
 		}
 
+    \System::log('Holema Update done.', __METHOD__, TL_CRON);
+
 	}
 
 
