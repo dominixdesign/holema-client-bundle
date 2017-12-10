@@ -33,14 +33,33 @@ class RosterModule extends Module {
 
   protected function compile()
   {
-		$players = HolemaPlayers::findByRound($this->holema_round,array('order' => ' position DESC, lastname DESC'));
+		$players = HolemaPlayers::findByRound($this->holema_round,array('order' => ' position DESC, lastname ASC'));
+		$playerlist = array();
 
 		if(!$players) {
 			return null;
 		}
-		$players = $players->fetchAll();
+		foreach($players->fetchAll() as $p) {
+			switch($p['position']) {
+				case 'RW':
+				case 'C':
+				case 'LW':
+					$playerlist['F'][] = $p;
+				default:
+					$playerlist[$p['position']][] = $p;
+					break;
+			}
+		}
 
-		$this->Template->players = $players;
+		$playerlist['0G'] = $playerlist['G'];
+		$playerlist['2D'] = $playerlist['D'];
+		$playerlist['4F'] = $playerlist['F'];
+		unset($playerlist['G']);
+		unset($playerlist['D']);
+		unset($playerlist['F']);
+		ksort($playerlist);
+
+		$this->Template->players = $playerlist;
 
 		$this->Template->headline = $this->headline;
 		$this->Template->headlineUnit = $this->hl;
