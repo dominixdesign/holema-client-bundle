@@ -18,3 +18,5 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['rowStop'] = '{type_legend},type;{t
 
 // people box
 $GLOBALS['TL_DCA']['tl_content']['palettes']['people'] = '{type_legend},type;{link_legend},headline,people_attributes;{image_legend},singleSRC;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
+
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ad'] = '{type_legend},type;{link_legend},headline,html;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
