@@ -1,0 +1,9 @@
+<?php $this->block('content'); ?>
+<div class="holema-roster <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="'.$this->cssId.'"' : '' ?>>
+<<?= $this->headlineUnit ?>><?= $this->headline ?></<?= $this->headlineUnit ?>>
+
+<?php
+var_dump($this->players);
+?>
+</div>
+<?php $this->endblock(); ?>

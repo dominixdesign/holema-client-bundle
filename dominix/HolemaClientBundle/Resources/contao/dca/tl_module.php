@@ -62,7 +62,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['holema_to_date'] = array
 	 'sql'                     => "varchar(10) NOT NULL default ''"
 );
 
-
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] = '{title_legend},name,headline,type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'].= '{holema_legend},holema_round,holema_table_rows,holema_my_team,holema_standings_columns;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
@@ -70,6 +69,10 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'].= '{template_legend:hid
 $GLOBALS['TL_DCA']['tl_module']['palettes']['scorerlist'] = '{title_legend},name,headline,type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['scorerlist'].= '{holema_legend},holema_round,holema_table_rows,holema_scorer_columns;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['scorerlist'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'] = '{title_legend},name,headline,type;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{holema_legend},holema_round,holema_my_team;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'] = '{title_legend},name,headline,type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'].= '{holema_legend},holema_round,holema_my_team;';
