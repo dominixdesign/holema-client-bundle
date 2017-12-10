@@ -12,9 +12,6 @@ class ContentAd extends \ContentElement {
         $this->Template->headline = $this->headline;
   		} else {
   			$this->Template->html = '<pre>' . htmlspecialchars($this->html) . '</pre>';
-        $objTemplate->title = $this->headline;
   		}
-
-
   	}
 }
