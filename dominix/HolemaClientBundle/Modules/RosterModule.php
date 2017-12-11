@@ -33,7 +33,7 @@ class RosterModule extends Module {
 
   protected function compile()
   {
-		$players = HolemaPlayers::findByRound($this->holema_round,array('order' => ' position DESC, lastname ASC'));
+		$players = HolemaPlayers::findByRound($this->holema_round,array('order' => 'jersey ASC'));
 		$playerlist = array();
 
 		if(!$players) {
@@ -45,6 +45,7 @@ class RosterModule extends Module {
 				case 'C':
 				case 'LW':
 					$playerlist['F'][] = $p;
+					break;
 				default:
 					$playerlist[$p['position']][] = $p;
 					break;
