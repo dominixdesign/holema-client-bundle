@@ -46,6 +46,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['holema_scorer_columns'] = array
 	 'eval'                    => array('multiple' => true, 'tl_class'=>'clr'),
 	 'sql'                     => "blob NULL"
 );
+$GLOBALS['TL_DCA']['tl_module']['fields']['holema_config_json'] = array
+(
+	 'label'                   => &$GLOBALS['TL_LANG']['tl_module']['holema_config_json'],
+	 'inputType'               => 'textarea',
+	 'reference'               => &$GLOBALS['TL_LANG']['holema_config_json'],
+	 'eval'                    => array('style'=>'height:60px', 'preserveTags'=>true, 'rte'=>'ace|html', 'tl_class'=>'clr'),
+	 'sql'                     => "text NULL"
+);
 $GLOBALS['TL_DCA']['tl_module']['fields']['holema_from_date'] = array
 (
 	 'label'                   => &$GLOBALS['TL_LANG']['tl_module']['holema_from_date'],
@@ -71,7 +79,7 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['scorerlist'].= '{holema_legend},hol
 $GLOBALS['TL_DCA']['tl_module']['palettes']['scorerlist'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['roster'] = '{title_legend},name,headline,type;';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{holema_legend},holema_round,holema_my_team;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{holema_legend},holema_round,holema_my_team,holema_config_json;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'] = '{title_legend},name,headline,type;';

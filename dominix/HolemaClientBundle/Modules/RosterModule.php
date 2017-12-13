@@ -61,6 +61,7 @@ class RosterModule extends Module {
 		ksort($playerlist);
 
 		$this->Template->players = $playerlist;
+		$this->Template->configData = json_decode(preg_replace('/(\v|\s)+/', ' ', $this->holema_config_json),true);
 
 		$this->Template->headline = $this->headline;
 		$this->Template->headlineUnit = $this->hl;
