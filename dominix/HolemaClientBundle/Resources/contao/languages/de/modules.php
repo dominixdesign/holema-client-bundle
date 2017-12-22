@@ -21,6 +21,7 @@ $GLOBALS['TL_LANG']['MOD']['holema_players'] = array('Spieler / Scorer', 'Spiele
 $GLOBALS['TL_LANG']['FMD']['holema'] = array('Holema Client Module', 'Holema Tabelle');
 $GLOBALS['TL_LANG']['FMD']['standings'] = array('Tabelle', 'Holema Tabelle');
 $GLOBALS['TL_LANG']['FMD']['roster'] = array('Spielerliste', 'Holema Spielerliste');
+$GLOBALS['TL_LANG']['FMD']['player'] = array('Spielerdetails', 'Holema Spielerdetails');
 $GLOBALS['TL_LANG']['FMD']['scorer'] = array('Scorerliste', 'Holema Scorerliste');
 $GLOBALS['TL_LANG']['FMD']['schedule'] = array('Spielplan', 'Holema Spielplan');
 

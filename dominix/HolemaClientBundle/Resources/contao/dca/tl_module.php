@@ -82,6 +82,9 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['roster'] = '{title_legend},name,hea
 $GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{holema_legend},holema_round,holema_my_team,holema_config_json;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
 
+$GLOBALS['TL_DCA']['tl_module']['palettes']['player'] = '{title_legend},name,headline,type;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['player'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
+
 $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'] = '{title_legend},name,headline,type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'].= '{holema_legend},holema_round,holema_my_team;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
