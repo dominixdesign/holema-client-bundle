@@ -114,7 +114,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'inputType'               => 'select',
 						'options_callback'			  => array('dominix\\HolemaClientBundle\\Models\\HolemaStandings', 'findTeamsForSelect'),
             'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'clr w50'),
-            'sql'                     => "int(10)"
+            'sql'                     => "int(10) NULL"
         ),
         'awayteam' => array
         (
@@ -124,7 +124,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'inputType'               => 'select',
 						'options_callback'			  => array('dominix\\HolemaClientBundle\\Models\\HolemaStandings', 'findTeamsForSelect'),
             'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(10)"
+            'sql'                     => "int(10) NULL"
         ),
         'gameday' => array
         (
@@ -133,7 +133,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(25)"
+            'sql'                     => "int(25) NULL"
         ),
         'gamedate' => array
         (
@@ -169,7 +169,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'search'                  => true,
             'inputType'               => 'number',
             'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(25)"
+            'sql'                     => "int(25) NULL"
         ),
         'periodscore' => array
         (
@@ -178,7 +178,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory' => false, 'maxlength' => 50, 'tl_class' => 'w50'),
-            'sql'                     => "varchar(50)"
+            'sql'                     => "varchar(50) NULL"
         ),
         'homescore' => array
         (
@@ -187,7 +187,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(25)"
+            'sql'                     => "int(25) NULL"
         ),
         'awayscore' => array
         (
@@ -196,7 +196,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(25)"
+            'sql'                     => "int(25) NULL"
         ),
         'resulttype' => array
         (
@@ -206,7 +206,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'inputType'               => 'select',
 						'options'									=> array('' => 'regulär','OT' => 'Overtime','SO' => 'Shootout','OR' => 'Spielwertung'),
             'eval'                    => array('rgxp' => 'alpha', 'mandatory' => false, 'maxlength' => 5, 'tl_class' => 'w50'),
-            'sql'                     => "varchar(5)"
+            'sql'                     => "varchar(5) NULL"
         ),
         'gamestatus' => array
         (
@@ -215,7 +215,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_games'] = array
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "varchar(50)"
+            'sql'                     => "varchar(50) NULL"
         ),
         'ended' => array
         (
