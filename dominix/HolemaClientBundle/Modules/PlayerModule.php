@@ -47,7 +47,7 @@ class PlayerModule extends Module {
 
 		$this->Template->headline = $this->headline;
 		$this->Template->player = $player;
-		$this->Template->players = $players;
+		$this->Template->players = $players->fetchAll();
 		$this->Template->headlineUnit = $this->hl;
 		$this->Template->cssId = $this->cssID[0];
 		$this->Template->cssClass = $this->cssID[1];
