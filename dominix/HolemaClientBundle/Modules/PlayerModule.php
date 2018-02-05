@@ -35,6 +35,7 @@ class PlayerModule extends Module {
   protected function compile()
   {
 		$player = HolemaPlayers::findByAlias(\Input::get('items'));
+		$players = HolemaPlayers::findByRound($this->holema_round,array('order' => 'jersey ASC'));
 
 		if(!$player) {
 			throw new PageNotFoundException('Page not found: ' . \Environment::get('uri'));
@@ -46,6 +47,7 @@ class PlayerModule extends Module {
 
 		$this->Template->headline = $this->headline;
 		$this->Template->player = $player;
+		$this->Template->players = $players;
 		$this->Template->headlineUnit = $this->hl;
 		$this->Template->cssId = $this->cssID[0];
 		$this->Template->cssClass = $this->cssID[1];
