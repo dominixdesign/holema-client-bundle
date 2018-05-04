@@ -81,7 +81,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
     // Palettes
     'palettes' => array
     (
-        'default' => '{style_legend},styleDesignation;{css_legend},cssClasses;{permissions_legend},disableInArticle,disableInContent,disableInCalendarEvent,disableInForm,disableInFormField,disableInLayout,disableInModule,disableInNews,disableInPage'
+        'default' => 'round,name,holemaid,alias,shortname,city'
     ),
     // Fields
     'fields'   => array
@@ -99,7 +99,7 @@ $GLOBALS['TL_DCA']['tl_holema_client_standings'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_holema_client_standings']['round'],
             'exclude'                 => true,
             'filter'                  => true,
-            'inputType'               => 'text',
+            'inputType'               => 'select',
 						'options_callback'				=> array('dominix\\HolemaClientBundle\\Models\\HolemaRounds', 'findForSelect'),
             'eval'                    => array('mandatory' => true, 'rgxp'=>'numeric', 'tl_class' => 'w50'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
