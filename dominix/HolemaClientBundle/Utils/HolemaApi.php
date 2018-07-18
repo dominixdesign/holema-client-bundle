@@ -24,7 +24,7 @@ class HolemaApi
 {
 
   const API_URL = 'https://del2.holema.eu/api/teams/';
-  const API_KEY = '***REMOVED***';
+  const API_KEY = '';
 
   private static function call($page, $round) {
     $uri = self::API_URL . $page . "/" . $round;
