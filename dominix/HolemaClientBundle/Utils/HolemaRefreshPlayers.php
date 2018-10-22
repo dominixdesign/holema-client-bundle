@@ -56,17 +56,19 @@ class HolemaRefreshPlayers
 
 			if($statsData->playerstats->players != '') {
 				foreach($statsData->playerstats->players->player as $stat) {
-					if($player->{'@id'} == $stat->{'@id'}) break;
+						if($player->{'@id'} == $stat->{'@id'}) {
+							$p->games = $stat->games;
+							$p->goals = $stat->goals;
+							$p->assists = $stat->assists;
+							$p->points = $stat->points;
+							$p->penalties = $stat->penalties;
+							$p->plusminus = $stat->plusminus;
+							$p->faceoffswon = $stat->faceoffswon;
+							$p->faceoffslost = $stat->faceoffslost;
+							$p->shots = $stat->shots;
+						break;
+					}
 				}
-				$p->games = $stat->games;
-				$p->goals = $stat->goals;
-				$p->assists = $stat->assists;
-				$p->points = $stat->points;
-				$p->penalties = $stat->penalties;
-				$p->plusminus = $stat->plusminus;
-				$p->faceoffswon = $stat->faceoffswon;
-				$p->faceoffslost = $stat->faceoffslost;
-				$p->shots = $stat->shots;
 			}
 
 			$p->alias = StringUtil::generateAlias($p->firstname." ".$p->lastname);
